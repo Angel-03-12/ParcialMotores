@@ -1,0 +1,21 @@
+using UnityEngine;
+using UnityEngine.AI;
+public class ControlBot : MonoBehaviour
+{
+    private int hp;
+    private GameObject jugador;
+    public int rapidez;
+    public NavMeshAgent Bot;
+    void Start()
+    {
+        
+        jugador = GameObject.Find("Player");
+    }
+    private void Update()
+    {
+        transform.LookAt(jugador.transform);
+        transform.Translate(rapidez * Vector3.forward * Time.deltaTime);
+    }
+    
+
+}
