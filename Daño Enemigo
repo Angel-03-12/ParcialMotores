@@ -1,0 +1,45 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+
+
+public class DañoEnemigo : MonoBehaviour
+{
+
+    private GameObject jugador;
+    public TMPro.TMP_Text Perdiste;
+
+
+    void Start()
+    {
+        Perdiste.text = "";
+    }
+
+
+    void Update()
+    {
+
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Jugador"))
+        {
+            recibirDaño();
+        }
+    }
+
+    public void recibirDaño()
+    {
+        Perdiste.text = "Game Overr";
+
+
+    }
+    void RestartGame()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+
+
+}
